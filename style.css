@@ -1,0 +1,801 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin: 0; /* Adjust margin as needed */
+}
+
+.logo img {
+  width: 100px; /* Set the width as desired */
+  /* Add any other styles like height, padding, etc. */
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 6px 15px;
+    transition: .5s;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: #000000;
+}
+
+.navigation a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 30px;
+    z-index: -1;
+    transform: scale(0);
+    opacity: 0;
+    transition: .5s;
+}
+
+.navigation a:hover span,
+.navigation a.active span {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('par/14.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#text {
+    position: absolute;
+    font-size: 8em;
+    color: #1b283a;
+    text-shadow: 2px 4px 5px #ffffff;
+}
+
+.parallax img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.parallax img#gate-left {
+    position: fixed;
+    transform: translateX(-282px);
+}
+
+.parallax img#gate-right {
+    position: fixed;
+    transform: translateX(305px);
+}
+
+.sec {
+    position: relative;
+    background: #DADEF7;
+    padding: 30px 100px;
+}
+
+.sec {
+  text-align: center; /* Center-align the content within the section */
+}
+
+.sec h2 {
+    font-size: 3em;
+    color: #040404;
+    margin-bottom: 10px;
+}
+
+.sec p {
+    font-size: 1.25em;
+    color: #000000;
+    font-weight: 400;
+    text-align: justify;
+}
+.hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    z-index: 101; /* Ensure it's above other content */
+    border: none;
+    background: none;
+    margin: 0; /* Reset any default margin */
+    padding: 0; /* Reset any default padding */
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px; /* Width of the hamburger lines */
+    height: 3px; /* Height of the hamburger lines */
+    background-color: #fff;
+    margin: 5px 0; /* Spacing between the lines */
+    transition: 0.3s;
+}
+
+
+/* Base styles */
+/* ... existing CSS ... */
+
+    @media only screen and (max-width: 768px) {
+        .hamburger {
+            display: block; /* Show the hamburger */
+        }
+    
+        .navigation {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background: #333;
+            flex-direction: column; /* Stack links vertically */
+            justify-content: flex-start; /* Align to the top */
+            align-items: center; /* Center items horizontally */
+            overflow-y: auto; /* Enable scroll on small screens */
+            transform: translateX(100%); /* Hide off-screen */
+            transition: transform 0.3s; /* Animate the sidebar */
+        }
+    
+        .navigation a {
+            display: block; /* Each link takes the full row */
+            width: 100%; /* Full width */
+            padding: 10px; /* Larger clickable area */
+            border-bottom: 1px solid #fff; /* Separates the items */
+            text-align: center; /* Center text */
+        }
+    
+        /* Adjusted header padding for small screens */
+        header {
+            padding: 10px;
+        }
+    }
+
+
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 480px) {
+    /* ... other styles ... */
+
+    .hamburger {
+        display: block; /* Show the hamburger */
+    }
+
+    .navigation {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: #333;
+        flex-direction: column; /* Stack links vertically */
+        justify-content: flex-start; /* Align to the top */
+        align-items: center; /* Center items horizontally */
+        overflow-y: auto; /* Enable scroll on small screens */
+        transform: translateX(100%); /* Hide off-screen */
+        transition: transform 0.3s; /* Animate the sidebar */
+    }
+
+    .navigation a {
+        display: block; /* Each link takes the full row */
+        width: 100%; /* Full width */
+        padding: 10px; /* Larger clickable area */
+        border-bottom: 1px solid #fff; /* Separates the items */
+        text-align: center; /* Center text */
+    }
+
+    /* Adjusted header padding for small screens */
+    header {
+        padding: 10px;
+    }
+
+}
+
+
+/* Additional global style adjustments for better scaling */
+.parallax img {
+    max-width: 100%; /* Ensure image max-width is not more than the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.parallax img#grass {
+    position: absolute; /* Positioning absolute to place it at the bottom */
+    bottom: 0; /* Locks the grass image to the bottom */
+    left: 0; /* Aligns grass image to the left */
+    width: 100%; /* Grass image will span the full width of its container */
+}
+
+
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
+.portfolio .portfolio-item {
+    margin-bottom: 30px;
+  }
+  
+.portfolio #portfolio-flters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+  }
+  
+.portfolio #portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px 10px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+  }
+  
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
+    color: #000000;
+    background: #000000;
+  }
+  
+.portfolio #portfolio-flters li:last-child {
+    margin-right: 0;
+  }
+  
+.portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  
+.portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+  }
+  
+.portfolio .portfolio-wrap img {
+    transition: all ease-in-out 0.3s;
+  }
+  
+.portfolio .portfolio-wrap .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+.portfolio .portfolio-wrap .portfolio-info h4 {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600;
+  }
+  
+.portfolio .portfolio-wrap .portfolio-info p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+  }
+  
+.portfolio .portfolio-wrap .portfolio-links {
+    text-align: center;
+    z-index: 4;
+  }
+.portfolio h2,p {
+    color: rgb(0, 0, 0);
+  }
+.portfolio .portfolio-wrap .portfolio-links a {
+    color: #000000;
+    margin: 0 5px 0 0;
+    font-size: 28px;
+    display: inline-block;
+    transition: 0.3s;
+  }
+  
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+    color: #000000;
+  }
+  
+.portfolio .portfolio-wrap:hover::before {
+    opacity: 1;
+  }
+  
+.portfolio .portfolio-wrap:hover img {
+    transform: scale(1.2);
+  }
+  
+.portfolio .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+  }
+  
+  /*--------------------------------------------------------------
+  # Portfolio Details
+  --------------------------------------------------------------*/
+.portfolio-details {
+    padding-top: 40px;
+  }
+  
+.portfolio-details .portfolio-details-slider img {
+    width: 100%;
+  }
+  
+.portfolio-details .portfolio-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+  
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #000000;
+    opacity: 1;
+    border: 1px solid #3498db;
+  }
+  
+.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #3498db;
+  }
+  
+.portfolio-details .portfolio-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+  }
+  
+.portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+  }
+  
+.portfolio-details .portfolio-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+  }
+  
+  .portfolio-details .portfolio-info ul li+li {
+    margin-top: 10px;
+  }
+  
+.portfolio-details .portfolio-description {
+    padding-top: 30px;
+  }
+  
+.portfolio-details .portfolio-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+.portfolio-details .portfolio-description p {
+    padding: 0;
+  }
+  
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 0 29px 0 #ffffff;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+
+.services .icon-box::before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  right: -60px;
+  top: -40px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  transition: all 0.3s;
+  z-index: -1;
+}
+.description {
+  color: black;
+}
+.services .icon-box:hover::before {
+  background: #674188;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+.icon-box a:hover {
+  text-decoration: underline;
+}
+.services .icon {
+  margin: 0 auto 20px auto;
+  padding-top: 10px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: #674188;
+  transition: all 0.3s ease-in-out;
+}
+
+.services .icon i {
+  font-size: 36px;
+  line-height: 1;
+  color: #fff;
+}
+
+.services .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+  
+}
+
+.services .title a {
+  color: #ffffff;
+}
+
+.services .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+}
+
+.services .icon-box:hover .title a,
+.services .icon-box:hover .description {
+  color: #ffffff;
+}
+
+.services .icon-box:hover .icon {
+  background: #ffffff;
+}
+
+.services .icon-box:hover .icon i {
+  color: #674188;
+}
+
+/*--------------------------------------------------------------
+# More Services
+--------------------------------------------------------------*/
+
+.navigation a {
+  color: rgb(0, 0, 0);
+  /* Additional styles like font size, font weight, etc. can be added here */
+}
+.services {
+  margin-top: 100px; /* Adjust this value as needed */
+}
+.section-title{
+  
+  margin-top: 50px;
+  color: black;
+}
+.section-title .h1 {
+  font-weight: bold;
+}
+.more-services {
+  padding-top: 20px;
+}
+
+.more-services .card {
+  border: 0;
+  padding: 160px 20px 20px 20px;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+h1 {
+  color: white;
+}
+
+.more-services .card-body {
+  z-index: 10;
+  background: rgb(160, 103, 191);
+  padding: 2px 10px;
+  box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
+  transition: 0.3s;
+  transition: ease-in-out 0.4s;
+  border-radius: 1px;
+}
+
+.more-services .card-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.more-services .card-title a {
+  color: #ffffff;
+}
+
+.more-services .card-text {
+  color: white;
+}
+
+.more-services .read-more a {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  transition: 0.4s;
+}
+
+.more-services .read-more a:hover {
+  text-decoration: underline;
+}
+
+.more-services .card:hover .card-body {
+  background: #674188;
+}
+
+.more-services .card:hover .read-more a,
+.more-services .card:hover .card-title,
+.more-services .card:hover .card-title a,
+.more-services .card:hover .card-text {
+  color: #fff;
+}
+
+
+
+/* Features Section - Home Page
+------------------------------*/
+.features .features-item {
+  color: rgb(0, 0, 0);
+}
+.features .container h2 {
+  color: rgb(0, 0, 0);
+}
+.features .features-item+.features-item {
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .features .features-item+.features-item {
+    margin-top: 40px;
+  }
+}
+
+.features .features-item h3 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.features .features-item .btn-get-started {
+  background-color: var(--primary-color);
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  padding: 8px 30px 10px 30px;
+  border-radius: 4px;
+}
+.features  p{
+  color: black;
+}
+.features .features-item .btn-get-started:hover {
+  background-color: rgb(216, 165, 216);
+}
+
+.features .features-item ul {
+  list-style: none;
+  padding: 0;
+}
+.features .features-item p{
+  color: black;
+}
+.features .features-item ul li {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.features .features-item ul li:last-child {
+  padding-bottom: 0;
+}
+
+.features .features-item ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: rgb(0, 0, 0);
+}
+
+.features .features-item img {
+  border: 6px solid var(--background-color);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.features .features-item .features-img-bg {
+  position: relative;
+  min-height: 500px;
+}
+
+@media (max-width: 640px) {
+  .features .features-item .features-img-bg {
+    min-height: 300px;
+  }
+}
+
+.features .features-item .features-img-bg img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.features .features-item .image-stack {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.features .features-item .image-stack .stack-back {
+  grid-column: 4/-1;
+  grid-row: 1;
+  width: 100%;
+  z-index: 1;
+}
+
+.features .features-item .image-stack .stack-front {
+  grid-row: 1;
+  grid-column: 1/span 8;
+  margin-top: 20%;
+  width: 100%;
+  z-index: 2;
+}
+
+
+/* newsletter css */
+/* newsletter css */
+
+
+.containerm {
+  min-height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  padding: 6rem;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  flex-direction: column;
+}
+
+.containerm .row {
+  margin-bottom: 20px;
+}
+
+.containerm .image {
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: 0 0 25px 1px rgba(0, 0, 0, .3);
+  transition: .5s;
+  background-color: #555;
+}
+
+.containerm .image:hover img {
+  transform: translate(-50%, -50%) scale(1.3) rotate(20deg);
+}
+
+.containerm .image img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .8s;
+}
+
+
+
+.containerm .news_img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .8s;
+}
+
+h2{padding: 2rem;}
+
+.logo{padding: 0px;}
+
+/*used for the team images*/
+.rounded-circle{
+	border:1px solid;
+	border: radius 100px;
+	width:100px;
+	height:150px;
+	margin: 10px;
+}/*used for the team images*/
+
+.profile{
+	width: 150px; 
+	height: 150px; 
+	object-fit: cover;
+}
+
+.space{
+	padding-bottom: 10px;
+}
